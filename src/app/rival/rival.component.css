@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  background-image: url('https://img.freepik.com/vector-premium/campo-futbol-o-futbol-posiciones-jugador_618240-136.jpg?w=2000');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}

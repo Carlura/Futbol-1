@@ -1,0 +1,17 @@
+<h2>Detalles del Titular</h2>
+<div *ngIf="titular$ | async as titular">
+  <h3>{{ titular.name }}</h3>
+  <p>Id: {{ titular.id }}</p>
+  <p>Alcoholismo: {{ titular.alcoholismo }}</p>
+  <p>Dinero: {{ titular.dinero }}</p>
+  <p>Aguante: {{ titular.aguante }}</p>
+  <p>Trucos: {{ titular.opcionTrucos }}</p>
+  <p>Tubo: {{ titular.opcionTubo }}</p>
+  <p>Bebida: {{ titular.opcionBebida }}</p>
+
+  <!-- Mostrar la media de las estadísticas -->
+  <h3>Media de las Estadísticas: {{ mediaStats }}</h3>
+
+  <!-- Botón para volver a la lista de jugadores -->
+  <button type="button" (click)="gotoTitulares()">Volver</button>
+</div>

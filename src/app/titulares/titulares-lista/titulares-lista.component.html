@@ -1,0 +1,10 @@
+<h2>Titulares</h2>
+<ul class="titulares">
+  <li
+    *ngFor="let titular of titulares$ | async"
+    [class.selected]="titular.id === selectedId">
+    <a [routerLink]="['/titulares', titular.id]">
+      <span class="badge">{{ titular.id }}</span>{{ titular.name }}
+    </a>
+  </li>
+</ul>

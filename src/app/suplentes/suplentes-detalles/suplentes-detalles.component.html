@@ -1,0 +1,17 @@
+<h2>Detalles del Suplente</h2>
+<div *ngIf="suplente$ | async as suplente">
+  <h3>{{ suplente.name }}</h3>
+  <p>Id: {{ suplente.id }}</p>
+  <p>Alcoholismo: {{ suplente.alcoholismo }}</p>
+  <p>Dinero: {{ suplente.dinero }}</p>
+  <p>Aguante: {{ suplente.aguante }}</p>
+  <p>Trucos: {{ suplente.opcionTrucos }}</p>
+  <p>Tubo: {{ suplente.opcionTubo }}</p>
+  <p>Bebida: {{ suplente.opcionBebida }}</p>
+
+  <!-- Mostrar la media de las estadísticas -->
+  <h3>Media de las Estadísticas: {{ mediaStats }}</h3>
+
+  <!-- Botón para volver a la lista de jugadores -->
+  <button type="button" (click)="gotoSuplentes()">Volver</button>
+</div>

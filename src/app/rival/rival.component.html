@@ -1,0 +1,106 @@
+<div class="content">
+  <h2>Comparar Stats</h2>
+  <div>
+    <label for="jugador">Selecciona un jugador:</label>
+    <select id="jugador" (change)="onJugadorSelect($event)">
+      <option *ngFor="let jugador of jugadores$ | async" [value]="jugador.id">
+        {{ jugador.name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <h3>Ingresar estadísticas del rival</h3>
+    <div>
+      <label for="nombreUsuario">Nombre:</label>
+      <input type="text" id="nombreUsuario" [(ngModel)]="userStats.name" />
+    </div>
+    <div>
+      <label>Alcoholismo:</label>
+      <input type="number" [(ngModel)]="userStats.alcoholismo" (input)="calcularMediaUserStats()" />
+    </div>
+    <div>
+      <label>Dinero:</label>
+      <input type="number" [(ngModel)]="userStats.dinero" (input)="calcularMediaUserStats()" />
+    </div>
+    <div>
+      <label>Aguante:</label>
+      <input type="number" [(ngModel)]="userStats.aguante" (input)="calcularMediaUserStats()" />
+    </div>
+    <div>
+      <label>Trucos:</label>
+      <select [(ngModel)]="userStats.opcionTrucos" (change)="calcularMediaUserStats()">
+        <option value="Si">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label>Tubo:</label>
+      <select [(ngModel)]="userStats.opcionTubo" (change)="calcularMediaUserStats()">
+        <option value="Si">Sí</option>
+        <option value="No">No</option>
+      </select>
+    </div>
+    <div>
+      <label>Bebida:</label>
+      <select [(ngModel)]="userStats.opcionBebida" (change)="calcularMediaUserStats()">
+        <option value="Bebidas Caseras">Bebidas Caseras</option>
+        <option value="Ron">Ron</option>
+        <option value="Whisky">Whisky</option>
+        <option value="Ginebra">Ginebra</option>
+        <option value="Vodka">Vodka</option>
+        <option value="Bacardi Limon">Bacardi Limon</option>
+        <option value="Licor 43">Licor 43</option>
+        <option value="Licores Comerciales">Licores Comerciales</option>
+        <option value="Cerveza">Cerveza</option>
+        <option value="Calimocho">Calimocho</option>
+        <option value="Tinto De Verano">Tinto De Verano</option>
+      </select>
+    </div>
+    <h4>Media de las Estadísticas del Rival: {{ mediaUserStats }}</h4>
+  </div>
+
+  <div *ngIf="selectedJugador">
+    <h3>{{ selectedJugador.name }}</h3>
+    <h4>Media de las Estadísticas: {{ mediaStats }}</h4>
+    <div>
+      <span> {{ userStats.name }} - {{ selectedJugador.name }}</span>
+    </div>
+    <div>
+      <label>Alcoholismo:</label>
+      <span>{{ userStats.alcoholismo }}</span>
+      <span>{{ compararStat(userStats.alcoholismo, selectedJugador.alcoholismo) }}</span>
+      <span>{{ selectedJugador.alcoholismo }}</span>
+    </div>
+    <div>
+      <label>Dinero:</label>
+      <span>{{ userStats.dinero }}</span>
+      <span>{{ compararStat(userStats.dinero, selectedJugador.dinero) }}</span>
+      <span>{{ selectedJugador.dinero }}</span>
+    </div>
+    <div>
+      <label>Aguante:</label>
+      <span>{{ userStats.aguante }}</span>
+      <span>{{ compararStat(userStats.aguante, selectedJugador.aguante) }}</span>
+      <span>{{ selectedJugador.aguante }}</span>
+    </div>
+    <div>
+      <label>Trucos:</label>
+      <span>{{ obtenerOpcionTrucos(userStats.opcionTrucos) }}</span>
+      <span>{{ compararStat(obtenerValorTrucos(userStats.opcionTrucos), obtenerValorTrucos(selectedJugador.opcionTrucos)) }}</span>
+      <span>{{ obtenerOpcionTrucos(selectedJugador.opcionTrucos) }}</span>
+    </div>
+    <div>
+      <label>Tubo:</label>
+      <span>{{ obtenerOpcionTubo(userStats.opcionTubo) }}</span>
+      <span>{{ compararStat(obtenerValorTubo(userStats.opcionTubo), obtenerValorTubo(selectedJugador.opcionTubo)) }}</span>
+      <span>{{ obtenerOpcionTubo(selectedJugador.opcionTubo) }}</span>
+    </div>
+    <div>
+      <label>Bebida:</label>
+      <span>{{ obtenerOpcionBebida(userStats.opcionBebida) }}</span>
+      <span>{{ compararStat(obtenerValorBebida(userStats.opcionBebida), obtenerValorBebida(selectedJugador.opcionBebida)) }}</span>
+      <span>{{ obtenerOpcionBebida(selectedJugador.opcionBebida) }}</span>
+    </div>
+  </div>
+</div>

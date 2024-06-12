@@ -1,0 +1,12 @@
+<h2>Jugadores</h2>
+<ul class="jugadores">
+  <li
+    *ngFor="let jugador of jugadores$ | async"
+    [class.selected]="jugador.id === selectedId"
+  >
+    <a [routerLink]="['/jugadores', jugador.id]">
+      <span class="badge">{{ jugador.id }} </span
+      >{{ jugador.name }}
+    </a>
+  </li>
+</ul>

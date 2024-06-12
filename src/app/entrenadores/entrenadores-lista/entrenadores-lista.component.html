@@ -1,0 +1,12 @@
+<h2>Entrenadores</h2>
+<ul class="entrenadores">
+  <li
+    *ngFor="let entrenador of entrenadores$ | async"
+    [class.selected]="entrenador.id === selectedId"
+  >
+    <a [routerLink]="['/entrenadores', entrenador.id]">
+      <span class="badge">{{ entrenador.id }} </span
+      >{{ entrenador.name }}
+    </a>
+  </li>
+</ul>

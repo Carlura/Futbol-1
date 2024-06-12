@@ -1,0 +1,25 @@
+
+
+:host {
+  display: block;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/000/518/390/large_2x/vector-soccer-field-with-stadium-002.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white; /* Ajusta el color del texto para que sea legible */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para mayor legibilidad */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+*/

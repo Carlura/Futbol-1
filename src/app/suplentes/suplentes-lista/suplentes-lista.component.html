@@ -1,0 +1,12 @@
+<h2>Suplentes</h2>
+<ul class="suplentes">
+  <li
+    *ngFor="let suplente of suplentes$ | async"
+    [class.selected]="suplente.id === selectedId"
+  >
+    <a [routerLink]="['/suplentes', suplente.id]">
+      <span class="badge">{{ suplente.id }} </span
+      >{{ suplente.name }}
+    </a>
+  </li>
+</ul>

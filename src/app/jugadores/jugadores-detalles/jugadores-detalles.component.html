@@ -1,0 +1,17 @@
+<h2>Detalles del Jugador</h2>
+<div *ngIf="jugador$ | async as jugador">
+  <h3>{{ jugador.name }}</h3>
+  <p>Id: {{ jugador.id }}</p>
+  <p>Alcoholismo: {{ jugador.alcoholismo }}</p>
+  <p>Dinero: {{ jugador.dinero }}</p>
+  <p>Aguante: {{ jugador.aguante }}</p>
+  <p>Trucos: {{ jugador.opcionTrucos }}</p>
+  <p>Tubo: {{ jugador.opcionTubo }}</p>
+  <p>Bebida: {{ jugador.opcionBebida }}</p>
+
+  <!-- Mostrar la media de las estadísticas -->
+  <h3>Media de las Estadísticas: {{ mediaStats }}</h3>
+
+  <!-- Botón para volver a la lista de jugadores -->
+  <button type="button" (click)="gotoJugadores()">Volver</button>
+</div>
